@@ -55,30 +55,30 @@ function generate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-        // النصوص على اليمين
         const rightX = canvas.width - 50; // مسافة من اليمين
         ctx.textAlign = "right";
         ctx.direction = "rtl"; // مهم للنص العربي
         ctx.textBaseline = "top";
 
         // رمضان مبارك بالعربي
-        ctx.font = "bold 60px Poppins";
+        ctx.font = "normal 48px Poppins"; // غير عريض
         ctx.fillStyle = "#2a3984";
         const arabicY = 180;
         ctx.fillText("رمضان مبارك", rightX, arabicY);
 
         // Ramadan Mubarak بالإنجليزي تحتها مباشرة
-        const englishY = arabicY + 70;
+        ctx.font = "normal 36px Poppins"; // غير عريض وأصغر
+        const englishY = arabicY + 60;
         ctx.fillText("Ramadan Mubarak", rightX, englishY);
 
         // الاسم والمسمى الوظيفي باللون AZURE
         ctx.fillStyle = "#4495CE";
-        ctx.font = "bold 40px Poppins";
-        const nameY = englishY + 80;
+        ctx.font = "normal 32px Poppins"; // الاسم خط عادي
+        const nameY = englishY + 70;
         if(name) ctx.fillText(name, rightX, nameY);
 
-        ctx.font = "bold 32px Poppins";
-        const titleY = nameY + 50;
+        ctx.font = "normal 28px Poppins"; // المسمى خط أصغر
+        const titleY = nameY + 40;
         if(title) ctx.fillText(title, rightX, titleY);
 
         // رابط تحميل الصورة
